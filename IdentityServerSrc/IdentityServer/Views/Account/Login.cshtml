@@ -1,0 +1,66 @@
+@using System.Web
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IdentityServer.Quickstart.Account.LoginViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var provider = Model.ExternalProviders.First();
+    var returnUrl=new Uri(HttpUtility.ParseQueryString(Model.ReturnUrl)["redirect_uri"]!).GetLeftPart(UriPartial.Authority);
+}
+<div class="login-page">
+
+    <partial name="_ValidationSummary" />
+    <div class="row justify-content-center">
+        @if (Model.EnableLocalLogin)
+        {
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Авторизація</h2>
+                    </div>
+                    <div class="card-body">
+                        <form asp-route="">
+                            <input type="hidden" asp-for="ReturnUrl" />
+                            <div class="form-group">
+                                <label asp-for="Username">Логін</label>
+                                <input class="form-control" placeholder="Username" asp-for="Username" autofocus required minlength="4" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password">Пароль</label>
+                                <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off" required="">
+                            </div>
+                            @if (Model.AllowRememberLogin)
+                            {
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" asp-for="RememberLogin">
+                                        <label class="form-check-label" asp-for="RememberLogin">
+                                            Запам'ятати мене
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+                            <button type="submit" class="btn btn-primary" name="button" value="login">Увійти</button>
+                            <a href="@returnUrl">
+                                <button type="button" class="btn btn-secondary" name="button" value="cancel">Повернутися</button>
+                            </a>
+                            <div class="text-center">
+                                <p  class="additional-text"><a asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl">Зареєструйтесь</a> або авторизуйтесь за допомогою</p>
+                                                            <a asp-controller="External"
+                                                               asp-action="Challenge"
+                                                               asp-route-scheme="@provider.AuthenticationScheme"
+                                                               asp-route-returnUrl="@Model.ReturnUrl">
+                                                                                                <div class="btn btn-outline-primary p-2" >
+                                                                                                    <svg  class="d-block google-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                                                                                                        <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                                                                                                    </svg>
+                                                                                                    </div>
+                                                            </a>
+                            
+                                                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

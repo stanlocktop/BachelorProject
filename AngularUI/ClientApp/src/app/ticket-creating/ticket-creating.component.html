@@ -1,0 +1,87 @@
+
+<div class="container-fluid px-2 px-sm-5">
+  <form [formGroup]="form" (ngSubmit)="(submitted=true) && form.valid && submit()">
+  <div class="card bg-dark text-white align-items-center">
+    <div class="card-header text-start col-12">
+      <h3 class="mx-0 mx-lg-4">Створити заявку</h3>
+    </div>
+    <div *ngIf="loading" class="card-body text-center">
+        <div class="spinner-grow text-warning " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="!loading && sent" class="card-body">
+        <div class="card-title">
+          <h5>Заявку відправлено</h5>
+        </div>
+        <p>Ваша заявка успішно відправлена. Ми зв'яжемося з вами найближчим часом.</p>
+    </div>
+      <div *ngIf="!loading && !sent" class="card-body col-10">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" formControlName="title" id="Title" placeholder="Заголовок" required/>
+          <label content="Title" for="Title" class="text-black-50">Заголовок</label>
+          <div *ngIf="form.invalid && submitted">
+            <div class="invalid-feedback d-block" *ngIf="form.controls['title'].errors?.['required']">
+              Заголовок обов'язковий
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['title'].errors?.['minlength']">
+              Довжина заголовку має бути не менше 5 символів
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['title'].errors?.['maxlength']">
+              Довжина заголовку має бути не більше 50 символів
+            </div>
+          </div>
+        </div>
+        <div class="form-floating mb-2">
+          <textarea  class="form-control" formControlName="description" id="Desc" placeholder="Опис"></textarea>
+          <label content="Title" for="Desc" class="text-black-50">Опис</label>
+          <div *ngIf="form.invalid && submitted ">
+            <div class="invalid-feedback d-block" *ngIf="form.controls['description'].errors?.['required']">
+              Опис обов'язковий
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['description'].errors?.['minlength']">
+              Довжина опису має бути не менше 10 символів
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['description'].errors?.['maxlength']">
+              Довжина опису має бути не більше 300 символів
+            </div>
+          </div>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="text" formControlName="creatorName" class="form-control" id="creator" placeholder="Автор"/>
+          <label content="Title" for="creator" class="text-black-50">Ім'я автора</label>
+          <div *ngIf="form.invalid && submitted">
+            <div class="invalid-feedback d-block" *ngIf="form.controls['creatorName'].errors?.['required']">
+              Ім'я є обов'язковим полем
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['creatorName'].errors?.['minlength']">
+              Довжина поля має бути не менше 5 символів
+            </div>
+            <div class="invalid-feedback d-block"  *ngIf="form.controls['creatorName'].errors?.['maxlength']">
+              Довжина поля має бути не більше 40 символів
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <span class="input-group-text">+380</span>
+          <div class="form-floating">
+            <input type="text" formControlName="creatorPhone" class="form-control" id="phone" placeholder="Телефон"/>
+            <label content="Title" for="phone" class="text-black-50">Номер телефону</label>
+          </div>
+        </div>
+        <div *ngIf="form.invalid && submitted">
+          <div class="invalid-feedback d-block" *ngIf="form.controls['creatorPhone'].errors?.['required']">
+            Номер є обов'язковим до заповнення
+          </div>
+          <div class="invalid-feedback d-block"  *ngIf="form.controls['creatorPhone'].errors?.['pattern']">
+            Впишіть будь-ласка лише цифри вашого номеру без коду країни
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!loading && !sent" class="card-footer col-12 text-center">
+        <button type="submit" class="btn btn-outline-success">Відправити</button>
+      </div>
+  </div>
+  </form>
+</div>
+

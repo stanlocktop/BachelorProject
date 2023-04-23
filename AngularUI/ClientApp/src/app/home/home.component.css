@@ -1,0 +1,382 @@
+﻿*{
+  margin: 0;
+  padding: 0;
+}
+/* main_banner */
+
+.main_banner {
+  background-image: url("../../assets/Images/photo_banner.jpg");
+  background-size: cover;
+  height: calc(100vh - 0px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 71px;
+  box-sizing: border-box;
+}
+.main_banner article {
+  max-width: 580px;
+  text-align: center;
+}
+.main_banner article h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+.main_banner article h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 59px;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+}
+.main_banner article p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  color: white;
+  background-color: black;
+}
+/*Sunset at Mount Fuji*/
+.sunset {
+  background-image: url("../../assets/Images/internalist 1.jpg");
+  background-size: cover;
+  min-height: 600px;
+  display: flex;
+  justify-content: right;
+  align-items:center;
+  padding-right: 62px;
+  box-sizing: border-box;
+}
+.sunset article {
+  max-width: 298px;
+}
+.sunset article h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+.sunset article p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+}
+/* Monstera Leafs*/
+.leafs{
+  background-image: url("../../assets/Images/volonteers.jpg");
+  background-size: cover;
+  min-height: 600px;
+  display: flex;
+  justify-content: right;
+  align-items:center;
+  padding-right: 87px;
+  box-sizing: border-box;
+}
+.leafs_title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+.leafs_text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+}
+.container_leafs {
+  max-width: 273px;
+  text-align: left;
+}
+/*Himalayas*/
+.himalayas{
+  background-image: url("../../assets/Images/gumanitarka.jpg");
+  background-size: cover;
+  min-height: 600px;
+  display: flex;
+  justify-content: right;
+  align-items:center;
+  padding-right: 119px;
+  box-sizing: border-box;
+}
+.himalayas_title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  max-width: 254px;
+}
+.himalayas_text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+  max-width: 241px;
+}
+.container_himalayas {
+  text-align: left;
+  display: flex;
+  align-items: flex-end;
+}
+/*Need help with photography or videography?*/
+.features{
+  background-color: black;
+  padding-top: 113px;
+  padding-bottom: 108px;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+.features article{
+  font-family: 'Poppins', sans-serif;
+  max-width: 600px;
+}
+.features h6{
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 42px;
+  color: white;
+  margin-bottom: 15px;
+}
+.features p{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: white;
+  margin-bottom: 22px;
+}
+.features a{
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #000000;
+  background-color: #FFFFFF;
+  padding: 5px 10px 5px 4px;
+  border-radius: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.features a::before{
+  content: "";
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: black;
+  margin-right: 6px;
+  display: inline-block;
+}
+/*what we do*/
+.what_we_do{
+  background-color: white;
+  padding-top: 113px;
+  padding-bottom: 84px;
+}
+.what_we_do .container {
+  max-width: 1168px;
+  margin: auto;
+}
+.what_we_do h3 {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 42px;
+  text-align: center;
+  color:black;
+  margin-bottom: 15px;
+}
+.what_we_do h4 {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  color: black;
+  margin-bottom: 42px;
+}
+.what_we_do .cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.what_we_do .cards article{
+  max-width: 576px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.what_we_do .description{
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+}
+.what_we_do .cards article img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.what_we_do .description h4{
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.what_we_do .description p{
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.what_we_do .description a{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #000000;
+  background-color: #FFFFFF;
+  padding: 5px 10px 5px 4px;
+  border-radius: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.what_we_do .description a::before{
+  content: "";
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: black;
+  margin-right: 6px;
+  display: inline-block;
+}
+/*Logotip*/
+.logotip {
+  background: white;
+  padding-top: 113px;
+  padding-bottom: 140px;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+
+.logotip_container {
+  margin: auto;
+  max-width: 1168px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.past {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logotip_container h3 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 42px;
+  text-align: center;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.logotip_container h4 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: black;
+  margin-bottom: 82px;
+}
+/*Maps*/
+.maps {
+  background: lightgray;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  min-height: 500px;
+}
+.maps_container {
+  margin: auto;
+  max-width: 1168px;
+  font-family: 'Poppins', sans-serif;
+}
+.maps_container h3{
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 42px;
+  text-align: center;
+  color: black;
+  margin-bottom: 15px;
+}
+.maps_container h4 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: black;
+  margin-bottom: 40px;
+}
+.past_iframe {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+/*Footer*/
+.footer {
+  padding: 55px 0;
+  background-color: white;
+}
+.footer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer_item {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+.footer_text {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  color: black;
+}

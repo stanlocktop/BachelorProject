@@ -1,0 +1,64 @@
+<div class="container-fluid px-2 px-sm-5">
+  <div *ngIf="loading" class="p-4 text-center">
+    <div class="spinner-grow text-warning " role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div *ngIf="!loading && Tickets.length == 0" class="p-4 text-center">
+    <h3>Заявок поки що немає</h3>
+  </div>
+
+  <div *ngIf="!loading" class="">
+    <div *ngFor="let ticket of Tickets">
+      <div class="card bg-dark text-white my-2">
+        <div class="card-header">
+          <h3>{{ticket.title}}</h3>
+        </div>
+        <div class="card-body">
+          <h5>{{ticket.description}}</h5>
+          <div class="card-text">
+            <p>{{ticket.creatorName}},</p>
+            <p>{{ticket.creatorPhone}} - номер телефону</p>
+            <p>{{ticket.created | date:'dd.MM.yyyy HH:mm'}} - дата створення</p>
+            <p>{{ticket.updated | date:'dd.MM.yyyy HH:mm'}} - дата оновлення</p>
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <div class="row justify-content-end align-content-center">
+            <div *ngIf="ticket.ownerUsername" class="my-2 my-sm-0 col-12 col-sm-4 col-xl-6">
+              <p class="text-success">Взято у роботу
+                <a [routerLink]="['/'+ticket.ownerUsername+'/profile/']"> {{ticket.ownerUsername}}</a>
+              </p>
+            </div>
+            <div  *ngIf="ticket.ownerUsername==_authService.getUserName()"  class="col-6 col-sm-2 col-xl-2 my-2 my-sm-0 text-center text-sm-end">
+              <button (click)="close(ticket.id)" class="btn btn-outline-secondary">Закрити</button>
+            </div>
+            <div *ngIf="!ticket.ownerUsername" class="col-6 col-sm-2 col-xl-2 my-2 my-sm-0 text-center text-sm-end" >
+              <button  (click)="apply(ticket.id)" class="btn btn-outline-success">Взяти</button>
+            </div>
+            <div *ngIf="IsAdmin" class="col-6 col-sm-3 col-xl-2 my-2 my-sm-0 text-center text-sm-end">
+              <button  (click)="delete(ticket.id)" class="btn btn-outline-danger">Видалити</button>
+            </div>
+            <div *ngIf="IsAdmin" class="col-6 col-sm-3 col-xl-2 my-2 my-sm-0 text-center text-sm-end">
+              <button [routerLink]="['/ticket/edit/'+ticket.id]" class="btn btn-outline-warning">Редагувати</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <ul *ngIf="pages.length>1" class="pagination">
+      <li class="page-item"  style="cursor:pointer;">
+        <div class="page-link" (click)="prevPage()"><</div>
+      </li>
+        <li class="page-item" style="cursor:pointer;" *ngFor="let page of pages">
+          <div class="page-link"  *ngIf="pageNo != page" (click)="changePage(page)">{{page}}</div>
+          <div class="page-link active" *ngIf="pageNo == page">{{page}}</div>
+        </li>
+      <li class="page-item" style="cursor:pointer;">
+        <div class="page-link" (click)="nextPage()" >></div>
+      </li>
+    </ul>
+  </div>
+</div>

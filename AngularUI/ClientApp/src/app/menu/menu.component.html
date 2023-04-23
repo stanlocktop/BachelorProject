@@ -1,0 +1,49 @@
+
+<header>
+  <div class="container row">
+    <a routerLink="/" class="logo col-12 col-sm-3 text-center">
+      <img ngSrc="assets/Images/logouahelper.svg" alt="logo" height="50" width="186">
+    </a>
+    <nav *ngIf="!isUserAuthenticated" class="col-12 col-sm-9">
+      <ul class="row justify-content-end">
+        <li routerLink="" fragment="whoarewe" class="col-12 col-sm-6 col-lg-2 my-2 m-lg-0">
+          <a href="#whoarewe">Хто ми?</a>
+        </li>
+        <li class="col-12 col-sm-6 col-lg-3 my-2 m-lg-0">
+          <a routerLink="ticket/create">Отримати допомогу</a>
+        </li>
+        <li routerLink="" fragment="map" class="col-12 col-sm-6 col-lg-2 my-2 m-lg-0">
+          <a href="#map">Контакти</a>
+        </li>
+        <li class="col-12 col-sm-6 col-lg-1 my-2 m-lg-0">
+          <a href="#" (click)="login()">Вхід</a>
+        </li>
+        <li class="col-12 col-sm-6 col-lg-4 my-2 m-lg-0">
+          <a href="#" (click)="register()">Реєстрація волонтера</a>
+        </li>
+      </ul>
+    </nav>
+    <nav *ngIf="isUserAuthenticated" class="col-12 col-sm-9">
+      <ul class="row justify-content-end">
+        <li class="col-12 col-sm-4 col-lg-3 my-2 m-lg-0 text-lg-end">
+          <a [routerLink]='["/"+userName+"/tickets"]'>Мої запити <span class="badge bg-info">{{myTicketsCount}}</span></a>
+        </li>
+        <li class="col-12 col-sm-3 col-lg-2 my-2 m-lg-0 text-lg-end">
+          <a [routerLink]='["/tickets"]'>Запити <span class="badge bg-danger">{{ticketCount}}</span></a>
+        </li>
+        <li class="col-12 col-sm-3 col-lg-2 my-2 m-lg-0 text-lg-end">
+          <a [routerLink]='["/"+userName+"/archive"]'>Архів</a>
+        </li>
+        <li class="col-12 col-sm-3 col-lg-2 my-2 m-lg-0 text-lg-end">
+          <a [routerLink]='["/"+userName+"/profile"]'>Профіль</a>
+        </li>
+        <li class="col-12 col-sm-3 col-lg-2 my-2 m-lg-0 text-lg-end">
+          <a routerLink="" (click)="logout()">Вихід</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+

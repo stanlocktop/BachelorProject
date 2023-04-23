@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IdentityServer.Quickstart.Account.UnconfirmedViewModel
+
+
+<div>
+@foreach (var user in Model.Users)
+{
+    <div class="card card-body bg-light mb-3">
+        <h4>@user.UserName</h4>
+        <p>@user.Id</p>
+        <p>@user.Email</p>
+        <p>@user.PhoneNumber</p>
+        <form asp-route-id="@user.Id" method="post">
+            <button type="submit" class="btn btn-primary">Підтвердити</button>
+        </form>
+    </div>
+}
+</div>

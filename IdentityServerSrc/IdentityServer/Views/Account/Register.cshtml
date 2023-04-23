@@ -1,0 +1,68 @@
+﻿
+@using System.Web
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IdentityServer.Quickstart.Account.RegistrationInputModel
+@{
+    var returnUrl=new Uri(HttpUtility.ParseQueryString(Model.ReturnUrl)["redirect_uri"]!).GetLeftPart(UriPartial.Authority);
+
+}
+
+<div class="login-page">
+
+    <partial name="_ValidationSummary" />
+
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Реєстрація</h2>
+                    </div>
+                    @if(Model.ReturnedMessage != null)
+                    {
+                        <div class="rounding bg-success p-3 m-2">
+                            <p class="text-white">@Model.ReturnedMessage</p>
+                        </div>
+                    }
+
+                    <div class="card-body">
+                        <form asp-route="Register">
+                            <input type="hidden" asp-for="ReturnUrl" />
+
+                            <div class="form-group">
+                                <label asp-for="Username">Ім'я користувача</label>
+                                <input class="form-control" placeholder="Ім'я користувача" asp-for="Username" autofocus required="" minlength="4" maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email">Пошта</label>
+                                <input type="email" class="form-control" placeholder="Пошта" asp-for="Email" required>
+                                                        </div>
+                            <div class="form-group">
+                                <label asp-for="Password">Пароль</label>
+                                <input type="password" class="form-control" placeholder="Пароль" asp-for="Password" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword">Підтвердіть пароль</label>
+                                <input type="password" class="form-control" placeholder="Повтор паролю" asp-for="ConfirmPassword" autocomplete="off" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="button" value="register">Реєстрація</button>
+                            <a href="@returnUrl"><button type="button" class="btn btn-secondary" name="button" value="cancel"> Назад</button></a>
+                            <div class="text-center">
+                                <p  class="additional-text">або авторизуйтесь за допомогою</p>
+                                <a asp-controller="External"
+                                   asp-action="Challenge"
+                                   asp-route-scheme="Google"
+                                   asp-route-returnUrl="@Model.ReturnUrl">
+                                                                    <div class="btn btn-outline-primary p-2" >
+                                                                        <svg  class="d-block google-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                                                                            <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                                                                        </svg>
+                                                                        </div>
+                                </a>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
